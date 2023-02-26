@@ -1,0 +1,89 @@
+﻿@model IEnumerable<VisitingViewModel>
+@{
+    ViewBag.Title = "Все Посещения";
+}
+<h1>Все Посещения</h1>
+
+@if (Model.Any())
+{
+    <a asp-action="AddVisiting"
+   class="btn btn-primary mb-3" style="width:auto">
+        Добавить новое посещение 
+    </a>
+
+    foreach (var visiting in Model)
+    {
+        <div class="card-tableNew">
+            <div class="card-header">
+            </div>
+
+            <div class="card-body">
+
+                <table style="display:table">
+                    <tr>
+                        <td>
+                            <table style="display:inline-table">
+                                <tr>
+                                    <th style="padding-right:15px">Посетитель: </th>
+                                    <td>@visiting.VisitorName</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-right:15px">Услуга: </th>
+                                    <td>@visiting.ServicesName</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-right:15px">Дата посещения: </th>
+                                    <td>@visiting.DateOfVisit.ToString("dd.MM.yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-right:15px">Время посещения: </th>
+                                    <td>@visiting.VisitTime.ToString("HH.mm")</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-right:15px">Количество часов: </th>
+                                    <td>@visiting.NumberOfHour</td>
+                                </tr>
+                                <tr>
+                                    <th style="padding-right:15px">Зал: </th>
+                                    <td>@visiting.HallsName</td>
+                                </tr>
+                              
+                                <tr>
+                                    <th style="padding-right:15px">Сотрудник: </th>
+                                    <td>@visiting.ApplicationUserName</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer">
+                <form asp-action="Delete" asp-route-id="@visiting.VisitingCode" method="post">
+
+                    <a asp-action="EditVisiting" asp-controller="Visiting" asp-route-id="@visiting.VisitingCode" class="btn btn-primary">Редактирование</a>
+                    <button type="submit" class="btn btn-danger"
+                    onclick="return confirm('Вы уверены что хотите удалить информацию о посещении?')">
+                        Удаление
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card-tableNew">
+        <div class="card-header">
+            Еще не добавлены посещения
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Используйте кнопку ниже, чтобы добавить посещение
+            </h5>
+            <a class="btn btn-primary" style="width:auto"
+           asp-action="AddVisiting">
+                Добавить посещение
+            </a>
+        </div>
+    </div>
+}

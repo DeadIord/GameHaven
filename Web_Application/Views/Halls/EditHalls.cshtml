@@ -1,0 +1,24 @@
+﻿@model Web_Application.Models.Halls
+@{
+    ViewBag.Title = "Редактирование зала";
+}
+<form asp-action="EditHalls" asp-controller="Halls" asp-route-HallsCode="@Model.HallsCode">
+    <div class="card-3d-wrap mx-auto">
+        <div class="card-front">
+                <div class="center-wrap">
+            <div class="form-group">
+                <label asp-for="NameOfTheHall" class="control-label">Зал</label>
+                    <input type="text" asp-for="NameOfTheHall" placeholder="Зал" class="form-style" />
+                <span asp-validation-for="NameOfTheHall" class="text-danger"></span>
+            </div>
+  
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Обновить</button>
+            </div>
+            </div>
+            </div>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

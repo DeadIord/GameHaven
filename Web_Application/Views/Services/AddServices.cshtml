@@ -1,0 +1,31 @@
+﻿@model Web_Application.Models.Services
+@{
+    ViewBag.Title = "Добавление Услуги";
+}
+<form asp-action="AddServices" asp-controller="Services">
+     <div class="card-3d-wrap mx-auto">
+        <div class="card-front">
+            <div class="center-wrap">
+            <div class="form-group">
+                <label asp-for="NameOfTheService" class="control-label">Услуга</label>
+                    <input type="text" asp-for="NameOfTheService" placeholder="Услуга" class="form-style" />
+                <span asp-validation-for="NameOfTheService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerhour" class="control-label">Цена за час</label>
+                    <input type="number"  placeholder="Цена за час"asp-for="PricePerhour" class="form-style" />
+                <span asp-validation-for="PricePerhour" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Создать</button>
+                    <a asp-action="ListServices" class="btn btn-primary">Отмена</a>
+                </div>
+        </div>
+    </div>
+</div>
+ 
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
