@@ -31,7 +31,56 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Identity\Pages\Account\AccessDenied.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Lockout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Login.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Logout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_Layout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Register.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\_StatusMessage.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\Error.cshtml" />
+    <None Include="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewStart.cshtml" />
     <None Include="compilerconfig.json" />
+    <None Include="Views\Computer\AddComputer.cshtml" />
+    <None Include="Views\Computer\EditComputer.cshtml" />
+    <None Include="Views\Computer\ListComputer.cshtml" />
+    <None Include="Views\Halls\AddHalls.cshtml" />
+    <None Include="Views\Halls\EditHalls.cshtml" />
+    <None Include="Views\Halls\ListHalls.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Services\AddServices.cshtml" />
+    <None Include="Views\Services\EditServices.cshtml" />
+    <None Include="Views\Services\ListServices.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\UserRoles\Index.cshtml" />
+    <None Include="Views\UserRoles\Manage.cshtml" />
+    <None Include="Views\User\EditUser.cshtml" />
+    <None Include="Views\User\ListUsers.cshtml" />
+    <None Include="Views\Visiting\AddVisiting.cshtml" />
+    <None Include="Views\Visiting\EditVisiting.cshtml" />
+    <None Include="Views\Visiting\ListVisiting.cshtml" />
+    <None Include="Views\Visitor\AddVisitor.cshtml" />
+    <None Include="Views\Visitor\EditVisitor.cshtml" />
+    <None Include="Views\Visitor\ListVisitor.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\css\style.scss" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

@@ -9,9 +9,14 @@
     var e = TempData["Employees"];
 }
 
-<form asp-action="EditVisiting" asp-controller="Visiting">
+<form asp-action="EditVisiting" asp-controller="Visiting" asp-route-VisitingCode="@Model.VisitingCode>
     <div class="card-3d-wrap mx-auto">
         <div class="card-front">
+            <div class="form-group">
+                <label asp-for="VisitingCode" class="control-label">Дата посещения</label>
+                <input type="text" asp-for="VisitingCode" class="form-style" />
+                <span asp-validation-for="VisitingCode" class="text-danger"></span>
+            </div>
             <div class="center-wrap">
                 <div asp-validation-summary="All" class="text-danger"></div>
             <label asp-for="ServicesCode" class="control-label">Услуга</label>
@@ -24,15 +29,11 @@
             </select>
             <span asp-validation-for="ServicesCode" class="text-danger"></span>
             <div class="form-group">
-                <label asp-for="DateOfVisit" class="control-label">Дата посещения</label>
-                <input type="date" asp-for="DateOfVisit" class="form-style" />
+                <label asp-for="DateOfVisit" class="control-label">Дата и время посещения</label>
+                <input type="datetime-local" asp-for="DateOfVisit" class="form-style" />
                 <span asp-validation-for="DateOfVisit" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="VisitTime" class="control-label">Время посещения</label>
-                <input type="time" asp-for="VisitTime" class="form-style" />
-                <span asp-validation-for="VisitTime" class="text-danger"></span>
-            </div>
+          
             <div class="form-group">
                 <label asp-for="NumberOfHour" class="control-label">Количество часов</label>
                 <input type="number"   placeholder="Количество часов"  asp-for="NumberOfHour" class="form-style" />
@@ -54,8 +55,8 @@
                 <span asp-validation-for="HallsCode" class="text-danger"></span>
             </div>
             <div>
-                <label asp-for="ComputersCode" class="control-label">Компьютер</label>
-                <select class="form-style" asp-for="ComputersCode" id="computers-dropdown">
+                    <label asp-for="ComputersId" class="control-label">Компьютер</label>
+                    <select class="form-style" asp-for="ComputersId" id="computers-dropdown">
                     <option value="">Выберите компьютер</option>
                 </select>
             </div>

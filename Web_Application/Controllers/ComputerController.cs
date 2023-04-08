@@ -48,7 +48,7 @@ namespace Web_Application.Controllers
 
             if (id != null)
             {
-                Computers computers = await db.Computers.FirstOrDefaultAsync(p => p.ComputerCode == id);
+                Computers computers = await db.Computers.FirstOrDefaultAsync(p => p.ComputersId == id);
                 var halls = db.Halls
              .Select(s => new SelectOptions
              {
@@ -117,7 +117,7 @@ namespace Web_Application.Controllers
         {
             if (id != null)
             {
-                Computers computers = await db.Computers.FirstOrDefaultAsync(p => p.ComputerCode == id);
+                Computers computers = await db.Computers.FirstOrDefaultAsync(p => p.ComputersId == id);
                 if (computers != null)
                     return View(computers);
             }
@@ -131,7 +131,7 @@ namespace Web_Application.Controllers
         {
             if (id != null)
             {
-                Computers computers = new() { ComputerCode = id.Value };
+                Computers computers = new() { ComputersId = id.Value };
                 db.Entry(computers).State = EntityState.Deleted;
                 await db.SaveChangesAsync();
                 return RedirectToAction("ListComputer");

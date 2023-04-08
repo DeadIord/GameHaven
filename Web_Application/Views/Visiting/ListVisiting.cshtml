@@ -1,4 +1,4 @@
-﻿@model IEnumerable<VisitingViewModel>
+﻿@model IEnumerable<Visiting>
 @{
     ViewBag.Title = "Все Посещения";
 }
@@ -11,7 +11,7 @@
         Добавить новое посещение 
     </a>
 
-    foreach (var visiting in Model)
+    @foreach (var visiting in Enumerable.Reverse(Model))
     {
         <div class="card-tableNew">
             <div class="card-header">
@@ -25,11 +25,11 @@
                             <table style="display:inline-table">
                                 <tr>
                                     <th style="padding-right:15px">Посетитель: </th>
-                                    <td>@visiting.VisitorName</td>
+                                    <td>@visiting.Visitor.Name</td>
                                 </tr>
                                 <tr>
                                     <th style="padding-right:15px">Услуга: </th>
-                                    <td>@visiting.ServicesName</td>
+                                    <td>@visiting.Services.NameOfTheService</td>
                                 </tr>
                                 <tr>
                                     <th style="padding-right:15px">Дата посещения: </th>
@@ -37,7 +37,7 @@
                                 </tr>
                                 <tr>
                                     <th style="padding-right:15px">Время посещения: </th>
-                                    <td>@visiting.VisitTime.ToString("HH.mm")</td>
+                                    <td>@visiting.DateOfVisit.ToString("HH.mm")</td>
                                 </tr>
                                 <tr>
                                     <th style="padding-right:15px">Количество часов: </th>
@@ -45,12 +45,15 @@
                                 </tr>
                                 <tr>
                                     <th style="padding-right:15px">Зал: </th>
-                                    <td>@visiting.HallsName</td>
+                                    <td>@visiting.Halls.NameOfTheHall</td>
                                 </tr>
-                              
+                                <tr>
+                                    <th style="padding-right:15px">Зал: </th>
+                                    <td>@visiting.Computers.ComputerName</td>
+                                </tr>
                                 <tr>
                                     <th style="padding-right:15px">Сотрудник: </th>
-                                    <td>@visiting.ApplicationUserName</td>
+                                    <td>@visiting.ApplicationUser.UserName</td>
                                 </tr>
                             </table>
                         </td>
@@ -60,7 +63,7 @@
             <div class="card-footer">
                 <form asp-action="Delete" asp-route-id="@visiting.VisitingCode" method="post">
 
-                    <a asp-action="EditVisiting" asp-controller="Visiting" asp-route-id="@visiting.VisitingCode" class="btn btn-primary">Редактирование</a>
+                 @*   <a asp-action="EditVisiting" asp-controller="Visiting" asp-route-id="@visiting.VisitingCode" class="btn btn-primary">Редактирование</a>*@
                     <button type="submit" class="btn btn-danger"
                     onclick="return confirm('Вы уверены что хотите удалить информацию о посещении?')">
                         Удаление

@@ -162,6 +162,7 @@ a {
 
 
 
+
 .btn {
     border-radius: 4px;
 
@@ -193,6 +194,7 @@ a {
     background-color: transparent;
     color: #6c757d;
     box-shadow: none;
+  
 }
 .btnlogout {
     background-color: transparent;
@@ -213,4 +215,13 @@ a {
 
 .text-yellow {
     color: #ffeba7 !important;
+}
+.mr{
+    margin-top:5px;
+}
+.mb {
+    margin-bottom: 5px;
+}
+.text-silver {
+    color: #c4c3ca;
 }

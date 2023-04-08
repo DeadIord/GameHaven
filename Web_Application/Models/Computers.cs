@@ -9,7 +9,7 @@ namespace Web_Application.Models
     {
       
         [Key]
-        public int ComputerCode { get; set; }
+        public int ComputersId { get; set; }
         [Display(Name = "Название компьютера")]
         [Required(ErrorMessage = "Не указано название компьютера")]
         public string ComputerName { get; set; }

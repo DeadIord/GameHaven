@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System.Reflection.Emit;
 using Web_Application.Models;
 
@@ -68,12 +69,13 @@ namespace Web_Application.Data
                             .HasForeignKey<Visiting>(v => v.VisitorCode);
 
             builder.Entity<Halls>()
-                 .HasMany(h => h.Visitings)
-                 .WithOne(v => v.Halls)
-                 .HasForeignKey(v => v.HallsCode);
+       .HasMany(h => h.Visitings)
+       .WithOne(v => v.Halls)
+       .HasForeignKey(v => v.HallsCode)
+       .OnDelete((DeleteBehavior)ReferentialAction.NoAction);
 
             builder.Entity<Visiting>()
-            .HasIndex(v => new { v.HallsCode, v.ComputersCode, v.VisitTime })
+            .HasIndex(v => new { v.HallsCode, v.ComputersId, v.DateOfVisit })
             .IsUnique();
 
 

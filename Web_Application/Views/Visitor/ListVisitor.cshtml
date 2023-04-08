@@ -15,7 +15,7 @@
                 <div class="input-group">
                         <input type="text" name="searchString" class="form-style" placeholder="Поиск по имени" style="margin-top: 5px;width:89%;%;">
                     <div class="input-group-append">
-                            <button class="btn btn-outline-secondary btnsecondary" type="submit">Поиск</button>
+                            <button class="btn btn-outline-secondary mr btnsecondary" type="submit">Поиск</button>
                     </div>
 
                 </div>
@@ -28,12 +28,11 @@
                         <option value="Нет">Непостоянный</option>
                     </select>
                     <div class="input-group-append">
-                            <button class="btn btn-outline-secondary btnsecondary" type="submit">Применить</button>
+                            <button class="btn btn-outline-secondary mb btnsecondary" type="submit">Применить</button>
                     </div>
                 </div>
 
-                           
-                
+                          
              
                 </div>
             </div>
@@ -50,7 +49,7 @@
     </form>
    
 
-    foreach (var visitor in Model)
+    foreach (var visitor in Enumerable.Reverse(Model))
     {
         <div class="card-tableNew">
             <div class="card-header">

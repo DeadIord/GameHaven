@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,23 +24,13 @@ namespace Web_Application.Controllers
                 .Include(p => p.Visitor)
                 .Include(p => p.Halls)
                 .Include(p => p.Services)
+                .Include(p =>p.Computers)
                 .Include(p => p.ApplicationUser)
                 .ToListAsync();
 
-            var model = visiting.Select(v => new VisitingViewModel
-            {
-                VisitingCode = v.VisitingCode,
-                VisitorName = v.Visitor.Name,
-                VisititorCode = v.VisitorCode,
-                ServicesName = v.Services.NameOfTheService,
-                DateOfVisit = v.DateOfVisit,
-                VisitTime = v.VisitTime,
-                NumberOfHour = v.NumberOfHour,
-                HallsName = v.Halls.NameOfTheHall,
-                ApplicationUserName = v.ApplicationUser.UserName
-            }).ToList();
+        
 
-            return View(model);
+            return View(visiting.ToList());
         }
         public record SelectOptions
         {
@@ -90,16 +81,11 @@ namespace Web_Application.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddVisiting(Visiting visiting, int selectedHallCode, int selectedComputerCode, DateTime selectedDate)
+        public async Task<IActionResult> AddVisiting(Visiting visiting)
         {
 
             try
             {
-                var existingVisit = db.Visiting
-                    .SingleOrDefault(v => v.HallsCode == selectedHallCode
-                        && v.ComputersCode == selectedComputerCode
-                        && v.DateOfVisit == selectedDate);
-
               
                     db.Visiting.Add(visiting);
                     await db.SaveChangesAsync();
@@ -186,13 +172,13 @@ namespace Web_Application.Controllers
             {
                 var existingVisit = db.Visiting
                     .SingleOrDefault(v => v.HallsCode == selectedHallCode
-                        && v.ComputersCode == selectedComputerCode
+                        && v.ComputersId == selectedComputerCode
                         && v.DateOfVisit == selectedDate);
 
-              
-                    db.Visiting.Add(visiting);
-                    await db.SaveChangesAsync();
-                    return RedirectToAction("ListVisiting");
+
+                db.Visiting.Update(visiting);
+                await db.SaveChangesAsync();
+                return RedirectToAction("ListVisiting");
                 
             }
             catch (Exception)
@@ -238,7 +224,7 @@ namespace Web_Application.Controllers
                 .Where(c => c.HallsCode == hallId)
                 .Select(c => new SelectOptions
                 {
-                    value = c.ComputerCode,
+                    value = c.ComputersId,
                     text = c.ComputerName,
                 })
                 .ToList();

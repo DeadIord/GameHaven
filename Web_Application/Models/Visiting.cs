@@ -11,15 +11,14 @@ namespace Web_Application.Models
         public int VisitorCode { get; set; }
         [Required(ErrorMessage = "Выберите услугу")]
         public int ServicesCode { get; set; }
-        [Required(ErrorMessage = "Укажите дату посещения")]
+        [Required(ErrorMessage = "Укажите дату или время посещения")]
         public DateTime DateOfVisit { get; set; }
-        [Required(ErrorMessage = "Укажите время посещения")]
-        public DateTime VisitTime { get; set; }
+       
         [Required(ErrorMessage = "Укажите количество часов")]
         public int NumberOfHour { get; set; }
         [Required(ErrorMessage = "Укажите зал")]
         public int HallsCode { get; set; }
-        public int ComputersCode { get; set; }
+        public int ComputersId { get; set; }
         public string ApplicationUserId { get; set; }
 
 
