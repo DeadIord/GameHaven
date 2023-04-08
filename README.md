@@ -31,7 +31,7 @@
 ![App Screenshot](https://sun9-22.userapi.com/impg/nyuL0zoIhzDb7HigzCeN5f5sLdzbv0f0-b-3Hw/hOGSQPYJX9M.jpg?size=1922x966&quality=96&sign=5df7775cd60eda2d6a2234be0633fa6b&type=album)
 
 Демонстрация добавления записи о посещении
-![App Screenshot](https://vk.com/doc383669422_656259382?hash=6vdrSyRPuZh1hXvBJ8II63ySbgYyJXSUlY26L2iAoUk&dl=ZzcXmyOOOplKpPlpY6ppxndWLEgawPWLTDF51zovFd8&wnd=1&module=im)
+![](https://github.com/DeadIord/GameHaven/blob/master/2023-02-26%2013-01-34.mkv)
 
 Отображение настроек аккаунта
 
